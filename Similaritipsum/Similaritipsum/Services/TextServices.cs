@@ -61,5 +61,34 @@ namespace Similaritipsum.Services
             }
             return d[n, m];
         }
+        /// <summary>
+        /// Checks for words that contain more than two r's in a word
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static int PirateReferenceCalculator(string s)
+        {
+            string[] arraySplit= s.Split(' ');
+            int result = 0;
+
+            foreach (string item in arraySplit)
+            {
+                int rCounter = 0;
+                foreach (var letter in item)
+                {
+                    if (letter == 'r')
+                    {
+                        rCounter++;
+                    }
+                }
+
+                if (rCounter >= 2)
+                {
+                    result++;
+                }
+            }
+
+            return result;
+        }
     }
 }

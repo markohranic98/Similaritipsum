@@ -21,15 +21,42 @@ namespace Similaritipsum
         /// determines the number of paragraphs fetched
         /// </summary>
         private string ipsumNoParagraphsDefault = "1";
+        /// <summary>
+        /// stores generated lipsum sstream in an array
+        /// </summary>
+        private List<string> lipsumStreamArray = new List<string>();
+        /// <summary>
+        /// Stores number of stream counts chosen in combobox
+        /// </summary>
+        private int lipsumStreamCount = 0;
 
         public MainForm()
         {
             InitializeComponent();
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            label1.Text = WebAPIServices.GetLoremIpsum(ipsumNoParagraphsDefault,ipsumNoParagraphsDefault);
+        }
+
+
+        private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            lipsumStreamArray.Clear();
+            lipsumStreamCount =streamNumberCbox.SelectedIndex+1;
+            for (int i = 0; i < lipsumStreamCount; i++)
+            {
+                lipsumStreamArray.Add(WebAPIServices.GetLoremIpsum(ipsumNoParagraphsDefault, ipsumNoParagraphsDefault));
+            }
+
+            MessageBox.Show("Test"); 
+        }
+
+        private void showPirateReferencesBtn_Click(object sender, EventArgs e)
+        {
+            PirateReferencesForm form = new PirateReferencesForm(lipsumStreamArray);
+            form.ShowDialog();
         }
     }
 }
