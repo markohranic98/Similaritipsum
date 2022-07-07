@@ -38,6 +38,7 @@ namespace Similaritipsum
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            streamNumberCbox.SelectedIndex = 0;
         }
 
 
@@ -49,14 +50,26 @@ namespace Similaritipsum
             {
                 lipsumStreamArray.Add(WebAPIServices.GetLoremIpsum(ipsumNoParagraphsDefault, ipsumNoParagraphsDefault));
             }
-
-            MessageBox.Show("Test"); 
         }
 
         private void showPirateReferencesBtn_Click(object sender, EventArgs e)
         {
             PirateReferencesForm form = new PirateReferencesForm(lipsumStreamArray);
             form.ShowDialog();
+        }
+
+        private void levensteinButton_Click(object sender, EventArgs e)
+        {
+            if (lipsumStreamCount > 2)
+            {
+                LevensteinReportForm form = new LevensteinReportForm(lipsumStreamArray);
+                form.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Need at least two streams to compare");
+            }
+            
         }
     }
 }

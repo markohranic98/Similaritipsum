@@ -31,6 +31,7 @@
             this.streamNumberCbox = new System.Windows.Forms.ComboBox();
             this.streamNumberLabel = new System.Windows.Forms.Label();
             this.showPirateReferencesBtn = new System.Windows.Forms.Button();
+            this.levensteinButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // streamNumberCbox
@@ -72,11 +73,22 @@
             this.showPirateReferencesBtn.UseVisualStyleBackColor = true;
             this.showPirateReferencesBtn.Click += new System.EventHandler(this.showPirateReferencesBtn_Click);
             // 
+            // levensteinButton
+            // 
+            this.levensteinButton.Location = new System.Drawing.Point(317, 37);
+            this.levensteinButton.Name = "levensteinButton";
+            this.levensteinButton.Size = new System.Drawing.Size(117, 23);
+            this.levensteinButton.TabIndex = 4;
+            this.levensteinButton.Text = "Levenstein distances";
+            this.levensteinButton.UseVisualStyleBackColor = true;
+            this.levensteinButton.Click += new System.EventHandler(this.levensteinButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(551, 94);
+            this.ClientSize = new System.Drawing.Size(471, 94);
+            this.Controls.Add(this.levensteinButton);
             this.Controls.Add(this.showPirateReferencesBtn);
             this.Controls.Add(this.streamNumberLabel);
             this.Controls.Add(this.streamNumberCbox);
@@ -93,6 +105,7 @@
         private System.Windows.Forms.ComboBox streamNumberCbox;
         private System.Windows.Forms.Label streamNumberLabel;
         private System.Windows.Forms.Button showPirateReferencesBtn;
+        private System.Windows.Forms.Button levensteinButton;
     }
 }
 
