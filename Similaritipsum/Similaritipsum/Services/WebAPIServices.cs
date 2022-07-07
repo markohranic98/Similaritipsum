@@ -14,10 +14,13 @@ namespace Similaritipsum.Services
     {
         private static readonly TextServices _textServices = new TextServices();
         private static readonly HttpClient httpClient = new HttpClient();
+
         /// <summary>
-        /// Method that gets 
+        /// Method that fetches generated lorem ipsum text
         /// </summary>
-        /// <returns>returns fetched lorem ipsum </returns>
+        /// <param name="length"></param>
+        /// <param name="numberOfParagraphs"></param>
+        /// <returns></returns>
         public static string GetLoremIpsum(string length, string numberOfParagraphs)
         {
             string result;
